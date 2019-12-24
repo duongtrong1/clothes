@@ -1,0 +1,21 @@
+package com.smartosc.ecommerce.clothes.service;
+
+import com.bookstore.domain.UserPayment;
+import com.bookstore.repository.UserPaymentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserPaymentServiceImpl implements UserPaymentService{
+
+	@Autowired
+	private UserPaymentRepository userPaymentRepository;
+		
+	public UserPayment findById(Long id) {
+		return userPaymentRepository.findOne(id);
+	}
+	
+	public void removeById(Long id) {
+		userPaymentRepository.delete(id);
+	}
+} 
